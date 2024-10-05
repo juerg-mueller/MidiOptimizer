@@ -1,72 +1,78 @@
 object Opt: TOpt
-  Left = 195
-  Height = 298
-  Top = 323
-  Width = 1116
+  Left = 414
+  Height = 341
+  Top = 476
+  Width = 1115
+  AllowDropFiles = True
   Caption = 'Opt'
-  ClientHeight = 298
-  ClientWidth = 1116
+  ClientHeight = 341
+  ClientWidth = 1115
   Color = clNone
   OnCreate = FormCreate
-  LCLVersion = '2.2.0.4'
+  OnDropFiles = FormDropFiles
+  ShowHint = True
+  LCLVersion = '2.2.6.0'
   object Button1: TButton
     Left = 32
-    Height = 25
-    Top = 185
-    Width = 160
+    Height = 30
+    Top = 216
+    Width = 196
     Caption = 'MIDI Datei einlesen'
     Color = clNone
     OnClick = Button1Click
-    TabOrder = 0
+    TabOrder = 4
   end
   object Label1: TLabel
     Left = 32
     Height = 36
-    Top = 233
-    Width = 368
+    Top = 280
+    Width = 598
     Align = alCustom
     Alignment = taCenter
     Anchors = []
     BorderSpacing.Top = 156
-    Caption = 'Bitte, MIDI-Datei einlesen.'
+    Caption = 'Bitte, MIDI-Datei einlesen oder "droppen".'
     Font.CharSet = ANSI_CHARSET
     Font.Color = clBlue
     Font.Height = -32
     Font.Name = 'Arial'
     Font.Pitch = fpVariable
     Font.Quality = fqDraft
+    ParentColor = False
     ParentFont = False
   end
   object gbHeader: TGroupBox
     Left = 0
     Height = 96
     Top = 0
-    Width = 1116
+    Width = 1115
     Align = alTop
-    ClientHeight = 76
-    ClientWidth = 1112
+    ClientHeight = 94
+    ClientWidth = 1113
     Enabled = False
-    TabOrder = 1
+    TabOrder = 5
     object Label8: TLabel
       Left = 35
-      Height = 15
+      Height = 19
       Top = 19
-      Width = 21
+      Width = 25
       Caption = 'Takt'
+      ParentColor = False
     end
     object Label12: TLabel
       Left = 35
-      Height = 15
+      Height = 19
       Top = 53
-      Width = 95
+      Width = 112
       Caption = 'Viertel pro Minute'
+      ParentColor = False
     end
     object cbxViertel: TComboBox
       Left = 240
-      Height = 23
+      Height = 31
       Top = 13
       Width = 78
-      ItemHeight = 15
+      ItemHeight = 0
       ItemIndex = 0
       Items.Strings = (
         'Viertel'
@@ -78,10 +84,10 @@ object Opt: TOpt
     end
     object cbxTakt: TComboBox
       Left = 159
-      Height = 23
+      Height = 31
       Top = 13
       Width = 78
-      ItemHeight = 15
+      ItemHeight = 0
       ItemIndex = 2
       Items.Strings = (
         '2'
@@ -102,7 +108,7 @@ object Opt: TOpt
     end
     object edtBPM: TEdit
       Left = 159
-      Height = 23
+      Height = 31
       Top = 50
       Width = 78
       Alignment = taRightJustify
@@ -111,48 +117,77 @@ object Opt: TOpt
     end
   end
   object edtBassCh: TEdit
-    Left = 378
-    Height = 23
+    Left = 387
+    Height = 31
+    Hint = 'Die Nummerierung beginnt bei 0.'
     Top = 113
-    Width = 80
+    Width = 100
     Alignment = taRightJustify
-    TabOrder = 2
+    TabOrder = 1
     Text = '5, 6'
   end
   object Label2: TLabel
     Left = 298
-    Height = 15
+    Height = 19
     Top = 117
-    Width = 57
+    Width = 68
     Caption = 'Basskanäle'
+    ParentColor = False
   end
   object Label3: TLabel
     Left = 518
-    Height = 15
+    Height = 19
     Top = 117
-    Width = 79
+    Width = 91
     Caption = 'Kanäle löschen'
+    ParentColor = False
   end
   object edtRemoveCh: TEdit
     Left = 614
-    Height = 23
-    Top = 113
-    Width = 80
+    Height = 31
+    Hint = 'Die Nummerierung beginnt bei 0.'
+    Top = 112
+    Width = 100
     Alignment = taRightJustify
-    TabOrder = 3
+    TabOrder = 2
     Text = '7'
   end
   object cbxUebernehmen: TCheckBox
     Left = 32
-    Height = 19
+    Height = 21
     Top = 115
-    Width = 159
+    Width = 188
     Alignment = taLeftJustify
     BidiMode = bdRightToLeft
     Caption = 'Taktangaben übernehmen'
     OnChange = cbxUebernehmenChange
     ParentBidiMode = False
-    TabOrder = 4
+    TabOrder = 0
+  end
+  object cbxNote: TComboBox
+    Left = 387
+    Height = 31
+    Top = 160
+    Width = 100
+    ItemHeight = 0
+    ItemIndex = 2
+    Items.Strings = (
+      'Achtel'
+      '16-tel'
+      '32-tel'
+      '64-tel'
+    )
+    ParentBidiMode = False
+    TabOrder = 3
+    Text = '32-tel'
+  end
+  object Label4: TLabel
+    Left = 298
+    Height = 19
+    Top = 165
+    Width = 83
+    Caption = 'Kleinste Note'
+    ParentColor = False
   end
   object OpenDialog1: TOpenDialog
     Filter = 'MIDI|*.mid;*.midi'

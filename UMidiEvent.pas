@@ -61,7 +61,7 @@ type
     var_len: integer;
     bytes: array of byte;
 
-    constructor Create(a, b, c, l: integer);
+    constructor Create(a, b, c: integer);
     procedure Clear;
     function Event: byte;
     function Channel: byte;
@@ -392,7 +392,7 @@ begin
   rect.Width := GetRaster(w);
 end;
 
-constructor TMidiEvent.Create(a, b, c, l: integer);
+constructor TMidiEvent.Create(a, b, c: integer);
 begin
   command := a;
   d1 := b; 

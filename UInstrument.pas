@@ -136,6 +136,7 @@ const
     Name: ('b-Oergeli');
     Sharp: (false);
     TransposedPrimes: 0;
+    BassDiatonic: false;
     Accordion: true;
     Columns: (3);
     Push: (
@@ -168,6 +169,7 @@ const
   SteirischeBEsAsDes : TInstrument = (
     Name: ('Steirische BEsAsDes');
     Sharp: (false);
+    TransposedPrimes: 0;
     BassDiatonic: (true);
     Accordion: false;
     Columns: (4);
@@ -216,7 +218,7 @@ uses
 {$ifdef VCL}
   AnsiStrings,
 {$endif}
-  UMyMemoryStream, UMyMidiStream;
+  UMyMidiStream;
 
 
 function TInstrument.GetAccordion: string;
